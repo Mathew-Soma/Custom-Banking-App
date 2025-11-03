@@ -17,3 +17,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/cente.png
+    - assets/images/airtel.jpeg
+    - assets/images/mtn.png
