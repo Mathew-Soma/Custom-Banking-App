@@ -1,6 +1,7 @@
+import 'package:DemoApp/src/presentation/screens/home/screen_two.dart';
+import 'package:DemoApp/src/presentation/screens/widgets/buildInputField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/src/presentation/screens/widgets/buildInputField.dart';
 
 // ignore: camel_case_types
 class screen_one extends StatelessWidget {
@@ -16,22 +17,33 @@ class screen_one extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
-        ),
+        
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.arrow_forward, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const screen_two()),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-
             children: [
               buildInputField(label: 'Name', hint: 'Enter full name'),
               const SizedBox(height: 20),
 
-              buildInputField(label: 'Send to', hint: 'Enter phone number', digitsOnly: true),
+              buildInputField(
+                label: 'Send to',
+                hint: 'Enter phone number',
+                digitsOnly: true,
+              ),
               const SizedBox(height: 20),
 
               Container(
@@ -49,7 +61,11 @@ class screen_one extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Amount field
-              buildInputField(label: 'UGX Amount', hint: 'Enter amount', digitsOnly: true),
+              buildInputField(
+                label: 'UGX Amount',
+                hint: 'Enter amount',
+                digitsOnly: true,
+              ),
               const SizedBox(height: 20),
 
               // Narration field

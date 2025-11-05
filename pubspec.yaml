@@ -1,4 +1,4 @@
-name: flutter_application_1
+name: DemoApp
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -20,5 +20,25 @@ flutter:
 
   assets:
     - assets/images/cente.png
-    - assets/images/airtel.jpeg
+    - assets/images/airtel.png
     - assets/images/mtn.png
+    - assets/images/bill.png
+    - assets/images/cash-withdrawal.png
+    - assets/images/graduated.png
+    - assets/images/lamp.png
+    - assets/images/money.png
+    - assets/images/send-money.png
+    - assets/images/personal.png
+    - assets/images/data.png
+    - assets/images/hand.png
+    - assets/images/payment-method.png
+    - assets/images/express-delivery.png
+    - assets/images/transaction-history.png
+    - assets/images/appeals.png
+    - assets/images/account.png
+    - assets/images/th.png
+    - assets/images/wlt.png
+
+
+
+

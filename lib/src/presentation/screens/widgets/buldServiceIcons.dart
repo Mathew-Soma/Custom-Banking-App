@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// A reusable helper widget that displays
 /// a circular image and a text label below it.
-/// The image fills the circle perfectly (no white spaces).
+/// The image fits nicely in the circle (no cropping or empty edges).
 Widget buildServiceIcon({
   required String assetPath, // path to image asset
   required String label, // text below the image
@@ -19,9 +19,12 @@ Widget buildServiceIcon({
           color: Colors.white, // background behind the image
         ),
         child: ClipOval(
-          child: Image.asset(
-            assetPath,
-            fit: BoxFit.cover, // fills the entire circle
+          child: Padding(
+            padding: const EdgeInsets.all(6.0), // add a little breathing space
+            child: Image.asset(
+              assetPath,
+              fit: BoxFit.contain, // ensures the full image is visible
+            ),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
+import 'package:DemoApp/src/presentation/screens/home/screen_three.dart';
+import 'package:DemoApp/src/presentation/screens/widgets/buildInputField.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // for input formatters
-import 'package:flutter_application_1/src/presentation/screens/widgets/buildInputField.dart';
+import 'package:flutter/services.dart'; 
 
 class screen_two extends StatelessWidget {
   const screen_two({super.key});
@@ -21,6 +22,17 @@ class screen_two extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.arrow_forward, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const screen_three()),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

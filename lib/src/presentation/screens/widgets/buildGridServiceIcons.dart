@@ -1,36 +1,20 @@
 import 'package:flutter/material.dart';
 
-/// A reusable widget for grid service icons with perfectly fitted circular images.
+/// A reusable widget for grid service icons without any circular border.
 Widget buildGridServiceIcon({
   required String imagePath, // path to your image asset
-  required String label, // text below the avatar
-  double radius = 28, // avatar radius
-  Color borderColor = const Color(0xFF1565C0), // border color
+  required String label, // text below the icon
+  double size = 40, // image size
 }) {
-  final double diameter = radius * 2;
-
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Container(
-        width: diameter,
-        height: diameter,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: borderColor.withOpacity(0.3), width: 1.2),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              blurRadius: 6,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            imagePath,
-            fit: BoxFit.cover, // ensures full coverage (no white spaces)
-          ),
+      SizedBox(
+        width: size,
+        height: size,
+        child: Image.asset(
+          imagePath,
+          fit: BoxFit.contain, // makes sure the full image fits well
         ),
       ),
       const SizedBox(height: 8),
