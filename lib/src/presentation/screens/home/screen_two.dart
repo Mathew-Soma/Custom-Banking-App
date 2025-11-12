@@ -1,13 +1,17 @@
 import 'package:DemoApp/src/presentation/screens/home/screen_three.dart';
 import 'package:DemoApp/src/presentation/screens/widgets/buildInputField.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; 
 
 class screen_two extends StatelessWidget {
   const screen_two({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // ✅ Define text controllers
+    final ugxController = TextEditingController();
+    final narrationController = TextEditingController();
+    final pinController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF2196F3),
@@ -39,136 +43,45 @@ class screen_two extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Recent Transactions Button
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                decoration: BoxDecoration(
-                  border: Border.all(color: const Color(0xFF2196F3)),
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xFFE3F2FD),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Recent Transactions',
-                      style: TextStyle(
-                        color: Color(0xFF2196F3),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios, size: 16, color: Color(0xFF2196F3)),
-                  ],
-                ),
-              ),
+              // ... your other widgets here ...
 
-              const SizedBox(height: 16),
-
-              // Two toggle buttons
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2196F3),
-                        foregroundColor: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          ),
-                        ),
-                      ),
-                      child: const Text('Select Beneficiary'),
-                    ),
-                  ),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFE0E0E0),
-                        foregroundColor: Colors.black54,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                        ),
-                      ),
-                      child: const Text('Other Number'),
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 16),
-
-              // Dropdown: My Number
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: ListTile(
-                  leading: const Icon(Icons.account_balance_wallet),
-                  title: const Text('My Number'),
-                  trailing: const Icon(Icons.arrow_drop_down),
-                  onTap: () {},
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // Dropdown: Bank account
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: ListTile(
-                  leading: const Icon(Icons.account_balance),
-                  title: const Text('320XXXX220'),
-                  trailing: const Icon(Icons.arrow_drop_down),
-                  onTap: () {},
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
-              // UGX Amount (numbers only)
               buildInputField(
                 label: 'UGX',
                 hint: 'Amount',
                 digitsOnly: true,
+                controller: ugxController, // ✅
               ),
 
               const SizedBox(height: 16),
 
-              // Narration
               buildInputField(
                 label: 'Narration',
                 hint: 'Optional note',
+                controller: narrationController, // ✅
               ),
 
               const SizedBox(height: 16),
 
-              // PIN
               buildInputField(
                 label: 'PIN',
                 obscure: true,
                 prefixIcon: Icons.lock,
                 digitsOnly: true,
+                controller: pinController, // ✅
               ),
 
               const SizedBox(height: 30),
 
-              // SEND button
               SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // ✅ Example: print values to confirm they’re captured
+                    print('UGX: ${ugxController.text}');
+                    print('Narration: ${narrationController.text}');
+                    print('PIN: ${pinController.text}');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF2196F3),
                     shape: RoundedRectangleBorder(
