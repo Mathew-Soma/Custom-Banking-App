@@ -23,3 +23,17 @@ class SubmitSaveEvent extends SaveEvent {
   @override
   List<Object?> get props => [name, phone, amount, narration, pin];
 }
+
+class SubmitSaveScreenTwoEvent extends SaveEvent{
+  final String amount;
+  final String narration;
+  final String pin;
+
+  SubmitSaveScreenTwoEvent({
+    required this.amount,
+    required this.narration,
+    required this.pin,
+  });
+  @override
+  List<Object?> get props => [amount, narration, pin];
+}

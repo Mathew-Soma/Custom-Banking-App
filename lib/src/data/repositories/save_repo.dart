@@ -21,4 +21,18 @@ class SaveRepository {
     };
     return await apiService.saveTransfer(data);
   }
+
+  Future<Map<String, dynamic>>saveScreenTwo(
+    {
+      required String amount,
+      required String narration,
+      required String pin
+    }) async {
+      final data = {
+        'amount': amount,
+        'narration': narration,
+        'pin': pin,
+      };
+      return await apiService.saveScreenTwo(data);
+    }
 }

@@ -1,5 +1,6 @@
 import 'package:DemoApp/src/data/repositories/save_repo.dart';
 import 'package:DemoApp/src/data/services/save_service.dart';
+import 'package:DemoApp/src/presentation/screens/home/screen_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:DemoApp/src/bloc/save_bloc.dart';
@@ -38,13 +39,25 @@ class _ScreenOneState extends State<ScreenOne> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: const Color(0xFF2196F3),
-              title: const Text(
-                'MTN Money',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                backgroundColor: const Color(0xFF2196F3),
+                title: const Text(
+                  'MTN Money',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                centerTitle: true,
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const screen_two()),
+                      );
+                    },
+                  ),
+                ],
               ),
-              centerTitle: true,
-            ),
+
             body: Padding(
               padding: const EdgeInsets.all(16.0),
               child: SingleChildScrollView(
